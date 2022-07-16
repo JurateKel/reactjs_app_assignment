@@ -1,38 +1,262 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f1f1f1;
+}
+button {
+  border-radius: 10px;
+  color: white;
+  background-color: #0000ff;
+  border: none;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+button:hover {
+  transform: scale(1.05);
+}
+.d-flex {
+  display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.j-center {
+  justify-content: center;
+}
+.j-space-between {
+  justify-content: space-between;
+}
+.img {
+  width: 200px;
+  margin: auto;
+}
+img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.toolbar {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+.toolbar a:hover {
+  transform: scale(1.05);
+}
+.isLogged-toolbar,
+.isNotLogged-toolbar {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.isLogged-toolbar {
+  justify-content: space-between;
+}
+.isNotLogged-toolbar {
+  justify-content: flex-end;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.isLogged-toolbar *,
+.isNotLogged-toolbar * {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.registration, 
+.login {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.registration *,
+.login *  {
+  margin: 5px 0 5px 0;
+}
+.registration-radio {
+  display: flex;
+  flex-direction: column;
+}
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.basic-info-wrapper,
+.settings-wrapper {
+  background-color: white;
+  width: 400px;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.change-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.change-password-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.change-password-wrapper > div {
+  display: flex;
+  flex-direction: column;
+}
+.user-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+}
+.user-card {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 31%;
+  background-color: white;
+  box-sizing: border-box;
+}
+.user-cards-wrapper .user-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.user-card div {
+  height: 70%;
+}
+.user-card img {
+  border-radius: 10px;
+  object-fit: cover;
+}
+.selected-user {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+.selected-user .user-card {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.selected-user .settings {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.user-chats {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 30px;
+  position: relative;
+}
+.user-chats.as-background {
+  opacity: 0.1;
+}
+.chat-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  margin: 10px;
+  padding: 20px;
+  width: 600px;
+  border-radius: 20px;
+}
+.chat-wrapper>div,
+.chat-message>div {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.chat-wrapper img,
+.chat-message img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.chat-wrapper h4 {
+  padding: 0 10px 0 10px;
+}
+.chat-box-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.chat-box-button {
+  height: 35px;
+  align-self: center;
+  margin: 5px;
+  width: 100%;
+}
+.chat-box-button.inactive {
+  border-radius: 10px;
+  color: black;
+  background-color: #a7a7f0;
+  border: none;
+}
+.chat-message {
+  display: flex;
+  justify-content: flex-start;
+}
+.chat-message p {
+  padding: 0 10px 0 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.chat-message.sender {
+  justify-content: flex-start;
+  flex-direction: row-reverse;
 }
+.overlay {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: fle;
+    width: 70%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(73 122 255 / 42%);
+    cursor: pointer;
+    color: black;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .chat-box-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .chat-box-footer *{
+    width: 100%;
+    align-items: flex-end;
+  }
+  .overlay div:last-child {
+    align-items: flex-end;
+  }
+  .chat-box-messages {
+    overflow-y: scroll;
+    border-radius: 10px;
+    scroll-margin-top: 100px;
+    height: 100%;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
