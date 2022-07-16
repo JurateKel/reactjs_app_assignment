@@ -10,10 +10,9 @@ function Conversations() {
   const [getFriend, setFriend] = useState('')
 
   const userMessages = messagesStore.filter(x => x.participants.includes(userLogged.userName))
-
   const chatFriends = []
   userMessages.map(x=>chatFriends.push(x.participants.filter(y=> y !== userLogged.userName)))
-
+  
   const uniqueChatFriends = [ ...new Set(chatFriends.flat())]
 
   return (

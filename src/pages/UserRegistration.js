@@ -34,7 +34,8 @@ function UserRegistration() {
             passOne: registrationPassw1.current.value,
             passTwo: registrationPassw2.current.value,
             rights: adminRef.current.checked ? 'admin' : 'regular',
-            blockedFrom: []
+            blockedFrom: [],
+            status: 'active'
         }
         if (newUser.userName.length < 4 || newUser.userName.length > 20) confirmation = 'User name should be between 4 and 20 symbols.'
         else if (checkIfUserNameExist(newUser)) confirmation = 'Such user name already exists.'

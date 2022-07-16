@@ -16,20 +16,27 @@ function SelectedUser() {
     const messageRef = useRef()
 
     function getMessage() {
-        if (!userLogged.blockedFrom.includes(selectedUserCard[0].userName)){
+        if (!userLogged.blockedFrom.includes(selectedUserCard[0].userName) &&
+        !selectedUserCard[0].blockedFrom.includes(userLogged.userName)){
         const messageToDispatch = {
             text: messageRef.current.value,
             participants: [userLogged.userName, selectedUser.userName],
             sender: userLogged.userName,
-            id: Date.now(),
-            status: 'active'
+            id: Date.now()
         }
         dispatch(pushMessage(messageToDispatch))
         }
     }
 
     function deleteUser() {
-        const updatedUsers = allUsersStorage.filter(x => x.userName !== selectedUser.userName)
+        const updatedUsers = [...allUsersStorage]
+        allUsersStorage.map((x,i) => {
+            if (x.userName === selectedUser.userName) {
+                let deletedUser = {...x}
+                deletedUser.status = 'deleted'
+                updatedUsers[i] = deletedUser
+            }
+        })
         dispatch(updateAllUsers(updatedUsers))
         navigate('/all_users')
     }

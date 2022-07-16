@@ -16,8 +16,7 @@ function RenderChatMessages({getChat, setChat, getFriend}) {
         text: messageRef.current.value,
         participants: [userLogged.userName, chatFriendData[0].userName],
         sender: userLogged.userName,
-        id: Date.now(),
-        status: 'active'
+        id: Date.now()
     }
     setChat([...getChat, messageToDispatch])
     dispatch(pushMessage(messageToDispatch))

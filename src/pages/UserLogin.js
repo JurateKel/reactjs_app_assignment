@@ -25,7 +25,8 @@ function UserLogin() {
       password: isRegistered.password,
       userName: isRegistered.userName,
       rights: isRegistered.rights,
-      blockedFrom: isRegistered.blockedFrom
+      blockedFrom: isRegistered.blockedFrom,
+      status: 'active'
     }
 
     if (isRegistered)  setError(null)

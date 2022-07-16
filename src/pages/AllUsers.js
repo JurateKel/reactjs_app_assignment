@@ -8,7 +8,7 @@ function AllUsers() {
   
   return (
     <div className='user-cards-wrapper'>
-      {allUsersStore.map((user, i) => <RenderUser user={user} key={i} />)}
+      {allUsersStore.map((user, i) => user.status !== 'deleted' && <RenderUser user={user} key={i} />)}
     </div>
   )
 }

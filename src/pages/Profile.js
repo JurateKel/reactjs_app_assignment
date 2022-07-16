@@ -25,7 +25,8 @@ function Profile() {
             password: userLogged.password,
             image: userLogged.image,
             rights: userLogged.rights,
-            blockedFrom: userLogged.blockedFrom
+            blockedFrom: userLogged.blockedFrom,
+            status: 'active'
             }
 
         if (element === 'image' && imgRef.current.value.length > 0) {

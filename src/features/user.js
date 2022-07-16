@@ -9,25 +9,33 @@ export const userSlice = createSlice({
                 password: 'Dana!',
                 image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
                 rights: 'admin',
-                blockedFrom: []},
+                blockedFrom: [],
+                status: 'active'
+            },
 
                 {userName: 'Tadas',
                 password: 'Tadas!',
                 image: 'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000',
                 rights: 'regular',
-                blockedFrom: []},
+                blockedFrom: [],
+                status: 'active'
+            },
 
                 {userName: 'Jonas',
                 password: 'Jonas!',
                 image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80',
                 rights: 'regular',
-                blockedFrom: []},
+                blockedFrom: [],
+                status: 'active'
+            },
 
                 {userName: 'Alina',
                 password: 'Alina!',
                 image: 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg?fit=640,427',
                 rights: 'admin',
-                blockedFrom: []}
+                blockedFrom: [],
+                status: 'active'
+            }
             ],
             userLoggedIn:'',
             messages: []        
@@ -41,7 +49,8 @@ export const userSlice = createSlice({
                 password: payload.passOne,
                 image: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
                 rights: payload.rights,
-                blockedFrom: payload.blockedFrom
+                blockedFrom: payload.blockedFrom,
+                status: payload.status
             }
             value.allUsers.push(user)
         },

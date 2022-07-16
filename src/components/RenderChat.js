@@ -9,9 +9,7 @@ function RenderChat({chatFriend, setChat, setFriend}) {
   const messagesStore = useSelector(state => state.user.value.messages)
   const userLogged = useSelector(state => state.user.value.userLoggedIn)
   const [buttonVisibility, setButtonVisibility] = useState(true)
-
   const chatFriendData = usersStore.filter(x => x.userName === chatFriend)
-
   useEffect(()=>{
     if (chatFriendData[0].blockedFrom.includes(userLogged.userName)) setButtonVisibility(false)
   }, [])
