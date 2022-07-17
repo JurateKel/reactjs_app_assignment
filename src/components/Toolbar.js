@@ -1,21 +1,26 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {loginUser} from '../features/user'
 
 
 function Toolbar() {
     const dispatch = useDispatch()
-    const userLoggedIn = useSelector(state=>state.user.value.userLoggedIn)
-    function logOut() {
-        dispatch(loginUser())
-    }
+    const navigate = useNavigate()
     const messagesStore = useSelector(state => state.user.value.messages)
     const userLogged = useSelector(state => state.user.value.userLoggedIn)
+    const userLoggedIn = useSelector(state=>state.user.value.userLoggedIn)
+    let uniqueChatFriends = []
+    function logOut() {
+        dispatch(loginUser())
+        navigate('/')
+    }
+    if (userLoggedIn) {
     const userMessages = messagesStore.filter(x => x.participants.includes(userLogged.userName))
     const chatFriends = []
     userMessages.map(x=>chatFriends.push(x.participants.filter(y=> y !== userLogged.userName)))
-    const uniqueChatFriends = [ ...new Set(chatFriends.flat())]
+    uniqueChatFriends = [ ...new Set(chatFriends.flat())]
+    }
 
   return (
     <div className='toolbar'>
